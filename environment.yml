@@ -1,0 +1,14 @@
+name: dil
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - pip=22.3.1
+  - python=3.10
+  - cudatoolkit-dev=11.4
+  - cudnn=8.4
+  - jupyter=1.0.0
+  - matplotlib=3.6.2
+  - pip:
+    - jax==0.4.1
+    - "https://storage.googleapis.com/jax-releases/cuda11/jaxlib-0.4.1+cuda11.cudnn82-cp310-cp310-manylinux2014_x86_64.whl"

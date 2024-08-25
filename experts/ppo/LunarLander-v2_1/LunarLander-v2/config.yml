@@ -1,0 +1,36 @@
+!!python/object/apply:collections.OrderedDict
+- - - batch_size
+    - 64
+  - - ent_coef
+    - 0.01
+  - - env_wrapper
+    - - sb3based.rnnbc.ActionNoiseWrapper:
+          uniform_action_probability: 0.1
+      - sb3based.rnnbc.ScrambleWrapper:
+          should_scramble: true
+  - - gae_lambda
+    - 0.98
+  - - gamma
+    - 0.999
+  - - n_envs
+    - 16
+  - - n_epochs
+    - 4
+  - - n_steps
+    - 1000
+  - - n_timesteps
+    - 2000000.0
+  - - normalize
+    - gamma: 0.999
+      norm_obs_keys:
+      - obs
+  - - policy
+    - MultiInputPolicy
+  - - policy_kwargs
+    - features_extractor_class: !!python/name:sb3based.rnnpolicy.KeyCombinedExtractor ''
+      features_extractor_kwargs:
+        obs_keys:
+        - obs
+        - permutation
+  - - vf_coef
+    - 0.5
